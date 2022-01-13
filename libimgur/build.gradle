@@ -1,0 +1,25 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    // Retrofit
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    // library for moshi (Json to kotlin converter library)
+    implementation("com.squareup.moshi:moshi:$moshi_version")
+    // codegen - it converts at compile time rather than at run time, makes faster.
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+    // unit testing
+    testImplementation 'junit:junit:4.13.2'
+    // co-routines dependencies
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+}
